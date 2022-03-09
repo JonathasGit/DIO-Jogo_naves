@@ -3,8 +3,20 @@
     src:url(../src/fontes/ANODETONOONE.TTF);
 }
 
+
+                  /*Titulo do jogo*/
 h1{
-    font-family: Titulo;
+    font-family: Titulo; 
     font-size: 40px;
     color: #603A03;
+}
+
+body{
+    background-image:url(../src/imgs/fundo_game.jpg);
+}
+
+p{
+    color: aliceblue;
+    background-color: black;
+    margin-right: 933px;
 }
