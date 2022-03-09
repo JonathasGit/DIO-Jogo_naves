@@ -1,0 +1,10 @@
+@font-face {
+    font-family: Titulo; 
+    src:url(../src/fontes/ANODETONOONE.TTF);
+}
+
+h1{
+    font-family: Titulo;
+    font-size: 40px;
+    color: #603A03;
+}
