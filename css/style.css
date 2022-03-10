@@ -34,16 +34,29 @@ body{
 #fundoGame{
     width: 950px;
     height: 630px;
-    background-image: url(../src/imgs/fundo_game.jpg);
+    background-image: url(../src/imgs/fundo_game.jpg); /*Fundo do jogo, trocar essa foto*/
     border-color: #ffffff;
     border-style: solid;
 }
 
 #jogador{
+    width: 256px;
+    height: 66px;
+    position: absolute;
+    left: 8px;
+    top: 179px;
+    background-image: url(../src/imgs/apache.png);
 
 }
 
 #inimigo1{
+    width: 256px;
+    height: 66px;
+    position: absolute;
+    left: 689px;
+    top: 253px;
+    background-image: url(../src/imgs/inimigo1.png);
+
 
 }
 #inimigo2{}
@@ -59,6 +72,5 @@ body{
     margin-top: 100px;
     text-align: center;
     padding: 10px;
-
 }
 
