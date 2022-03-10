@@ -1,4 +1,4 @@
-@font-face {
+@font-face { /*Comando html3*/
     font-family: Titulo; 
     src:url(../src/fontes/ANODETONOONE.TTF);
 }
@@ -12,11 +12,53 @@ h1{
 }
 
 body{
-    background-image:url(../src/imgs/fundo_game.jpg);
+    background-image:url(../src/imgs/fundo.jpg);
 }
 
-p{
-    color: aliceblue;
+/*p{
+    color: red;
     background-color: black;
     margin-right: 933px;
+}*/
+
+/*Posicionamento de cada DIV*/
+
+#container{
+    width: 950px; /*Largura*/
+    height: auto; /*tamanho*/
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+#fundoGame{
+    width: 950px;
+    height: 630px;
+    background-image: url(../src/imgs/fundo_game.jpg);
+    border-color: #ffffff;
+    border-style: solid;
+}
+
+#jogador{
+
+}
+
+#inimigo1{
+
+}
+#inimigo2{}
+
+#amigo{}
+
+#inicio{
+    width: 350px;
+    height:200px;
+    background-color: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    text-align: center;
+    padding: 10px;
+
+}
+
