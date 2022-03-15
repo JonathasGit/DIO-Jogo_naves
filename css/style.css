@@ -60,9 +60,23 @@ body{
 
 
 }
-#inimigo2{}
+#inimigo2{    
+    width: 165px;
+    height: 70px;
+    position: absolute;
+    left: 775px;
+    top: 447px;    
+    background-image: url(../src/imgs/inimigo2.png);
+}
 
-#amigo{}
+#amigo{
+    width: 44px;
+    height: 51px;
+    position: absolute;
+    left: 50px;
+    top: 464px;
+    background-image: url(../src/imgs/amigo.png);
+}
 
 #inicio{
     width: 350px;
@@ -128,8 +142,45 @@ body{
     -moz-animation:play .5s steps(2) infinite;
     -ms-zoom-animation: play .5s steps(2) infinite;
     -o-animation: play .5s steps(2) infinite;
-    /*Fim de animação*/
-   
-
+    /*Fim de animação*/  
 
 }
+
+
+/*Animação do personagem que fica em solo(amigo)*/
+.anima3{
+    background-image: url(../src/imgs/amigo.png);
+    animation: play2 .9s steps(12) infinite;
+
+    -webkit-animation:play2 .9s steps(12) infinite;
+    -moz-animation:play2 .9s steps(12) infinite;
+    -ms-zoom-animation: play2 .9s steps(12) infinite;
+    -o-animation: play2 .9s steps(12) infinite;
+}
+@keyframes play2 {
+    from {background-position: 0px;}
+    to {background-position: 520px;}
+}
+/*Fim da animação do personagem em solo (AMIGO)*/
+
+/*Frames para cada navegador*/
+@-webkit-keyframes play2{
+    from {background-position: 0px;}
+    to {background-position: -528px;}
+}
+
+@-moz-keyframes play2{
+    from {background-position: 0px;}
+    to {background-position: -528px;}
+}
+
+@-ms-keyframes play2{
+    from {background-position: 0px;}
+    to {background-position: -528px;}
+}
+
+@-o-keyframes play2{
+    from {background-position: 0px;}
+    to {background-position: -528px;}
+}
+
