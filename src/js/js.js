@@ -62,7 +62,17 @@ function movejogador() {
         $("#jogador").css("top",topo+10);
     }
 
+
+   
+    /*if(jogo.pressionou[TECLA.D]){
+        var top1 = parseInt($("#jogador").css("left"));
+        $("#jogador").css("left",top1+10);      
+
+        //Aqui ele vai para direita >>>
+    }*/
+
     if(jogo.pressionou[TECLA.D]){
+        
 
         //Criar função de disparo
     }
