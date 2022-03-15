@@ -76,3 +76,60 @@ body{
 }
 
 
+/*Inicio de rotação do helicoptero amigo*/
+.anima1{
+    background-image: url(../src/imgs/apache.png); /*Imagem do professor é a helicoptero*/
+    animation: play .5s steps(2) infinite;
+
+    /*INdicação da animação em outros navegadores (OBS: No Google Chrome já deu certo)*/
+    -webkit-animation:play .5s steps(2) infinite;
+    -moz-animation:play .5s steps(2) infinite;
+    -ms-zoom-animation: play .5s steps(2) infinite;
+    -o-animation: play .5s steps(2) infinite;
+    /*Fim de indicação da animação, após isso tem que apontar o frame de cada um*/
+}
+@keyframes play{
+    from {background-position: 0px;}
+    to {background-position: -512px;}
+}
+/*FINAL de rotação do helicoptero amigo*/
+
+
+/*Frames para cada navegador*/
+@-webkit-keyframes play{
+    from {background-position: 0px;}
+    to {background-position: -512px;}
+}
+
+@-moz-keyframes play{
+    from {background-position: 0px;}
+    to {background-position: -512px;}
+}
+
+@-ms-keyframes play{
+    from {background-position: 0px;}
+    to {background-position: -512px;}
+}
+
+@-o-keyframes play{
+    from {background-position: 0px;}
+    to {background-position: -512px;}
+}
+
+
+/*Chamado de Ação inimigo 1 */
+
+.anima2{
+    background-image: url(../src/imgs/inimigo1.png);
+    animation: play .5s steps(2) infinite;
+
+ /*Indicação da animação em outros navegadores (Google Chrome já deu certo)*/
+    -webkit-animation:play .5s steps(2) infinite;
+    -moz-animation:play .5s steps(2) infinite;
+    -ms-zoom-animation: play .5s steps(2) infinite;
+    -o-animation: play .5s steps(2) infinite;
+    /*Fim de animação*/
+   
+
+
+}
