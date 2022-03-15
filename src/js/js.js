@@ -9,12 +9,14 @@ $("#fundoGame").append("<div id='amigo' class='anima3'></div>");
 
 
 //Principais variaveis do jogo
-
+var velocidade=5;
+var posicaoY = parseInt(Math.random() * 334);
 var jogo = {}
 var TECLA = {
     W: 87,
     S: 83,
-    D: 68
+    D: 68,
+    A: 65
 }
 
 jogo.pressionou = {}
@@ -40,6 +42,7 @@ jogo.timer = setInterval(loop,30);
 function loop() {
     movefundo();
     movejogador();
+    moveinimigo1();
 }  //fim do loop
 
 // Movendo o fundo
@@ -79,19 +82,36 @@ function movejogador() {
 
 
    
-    /*if(jogo.pressionou[TECLA.D]){
+    /*if(jogo.pressionou[TECLA.D]){ 
+        Movimenta para frente
         var top1 = parseInt($("#jogador").css("left"));
-        $("#jogador").css("left",top1+10);      
+        $("#jogador").css("left",top1+10);   
+
+          if(jogo.pressionou[TECLA.D]){
+        var esquerda1 = parseInt($("#jogador").css("left"));
+        $("#jogador").css("left",esquerda1+10); 
+   
 
         //Aqui ele vai para direita >>>
     }*/
 
     if(jogo.pressionou[TECLA.D]){
         
+      
+      
+        
 
         //Criar função de disparo
     }
+ /*  Movimenta para trás 
+    if(jogo.pressionou[TECLA.A]){
+        var esquerda1 = parseInt($("#jogador").css("left"));
+        $("#jogador").css("left",esquerda1-10); 
+
+    }*/
 }
+
+
 
 
 
