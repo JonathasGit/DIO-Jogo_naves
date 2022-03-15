@@ -56,10 +56,25 @@ function movejogador() {
     if(jogo.pressionou [TECLA.W]){
         var topo = parseInt($("#jogador").css("top"));
         $("#jogador").css("top",topo-10);
+
+        //Limitando o jogador de se mover para cima
+        if(topo<=0){
+            $("#jogador").css("top",topo+10);
+        }
+        //fim da limitação
+
+
     }
     if(jogo.pressionou[TECLA.S]){
         var topo = parseInt($("#jogador").css("top"));
         $("#jogador").css("top",topo+10);
+
+
+        //Limitando o jogador de se mover para baixo
+        if(topo>=434){
+            $("#jogador").css("top",topo-10);
+        }
+        //fim da limitação
     }
 
 
