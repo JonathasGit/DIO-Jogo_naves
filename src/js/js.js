@@ -43,6 +43,8 @@ function start() { /*Comandos mudam porque está usando Jquery*/
         movefundo();
         movejogador();
         moveinimigo1();
+        moveinimigo2();
+        moveamigo();
     }  //fim do loop
 
     // Movendo o fundo
@@ -123,6 +125,24 @@ function start() { /*Comandos mudam porque está usando Jquery*/
             posicaoY = parseInt(Math.random() * 334);
             $("#inimigo1").css("left", 694);
             $("#inimigo1").css("top", posicaoY);
+        }
+    }
+
+    function moveinimigo2() {
+        posicaoX = parseInt($("#inimigo2").css("left"));   //Cria variavel  
+        $("#inimigo2").css("left", posicaoX-3); // pega a div e vai subtraindo por 3
+
+        if (posicaoX<=0) {           
+            $("#inimigo2").css("left", 775);
+        }
+    }
+
+    function moveamigo(){
+        posicaoX = parseInt($("#amigo").css("left"));   //Cria variavel  na condiçaõ x 
+        $("#amigo").css("left", posicaoX+1);
+
+        if (posicaoX>906) {          // Qunado tiver em 906 volta ao zero   
+            $("#amigo").css("left", 0);
         }
     }
 
