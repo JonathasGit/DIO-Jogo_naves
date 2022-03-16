@@ -9,6 +9,7 @@ function start() { /*Comandos mudam porque está usando Jquery*/
 
 
     //Principais variaveis do jogo
+   var podeAtirar = true; 
     var velocidade = 5;
     var posicaoY = parseInt(Math.random() * 334);
     var jogo = {}
