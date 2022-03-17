@@ -6,6 +6,7 @@ function start() { /*Comandos mudam porque está usando Jquery*/
     $("#fundoGame").append("<div id='inimigo1' class='anima2'></div>");/*Para fazer o movimento no helicoptero Inimigo*/
     $("#fundoGame").append("<div id='inimigo2'></div>");
     $("#fundoGame").append("<div id='amigo' class='anima3'></div>");
+    $("#fundoGame").append("<div id='placar'></div>"); //Placar do jogo
 
 
     //Principais variaveis do jogo
@@ -19,7 +20,10 @@ function start() { /*Comandos mudam porque está usando Jquery*/
         D: 68,
         A: 65
     }
-    var fimdejogo=false;
+    var fimdejogo = false;
+    var pontos = 0;
+    var salvos = 0;
+    var perdidos = 0;
   
 
     jogo.pressionou = {}
@@ -51,6 +55,7 @@ function start() { /*Comandos mudam porque está usando Jquery*/
         moveinimigo2();
         moveamigo();
         colisao();
+        placar();
     }  //fim do loop
 
     // Movendo o fundo
@@ -214,7 +219,11 @@ function start() { /*Comandos mudam porque está usando Jquery*/
 
         
 
+
+            //disparar no inimigo 2 
             if (colisao4.length>0) {
+
+                pontos=pontos+50;
 		
                 inimigo2X = parseInt($("#inimigo2").css("left"));
                 inimigo2Y = parseInt($("#inimigo2").css("top"));
@@ -225,22 +234,23 @@ function start() { /*Comandos mudam porque está usando Jquery*/
                 
                 reposicionaInimigo2();
                     
-                }
+                }    //disparar no inimigo 2 final
         }
 
         // jogador com o inimigo2 
-           if (colisao2.length>0) 
-        {
-	
-           inimigo2X = parseInt($("#inimigo2").css("left")); // pega posição
-           inimigo2Y = parseInt($("#inimigo2").css("top"));// pega posição
-           explosao2(inimigo2X,inimigo2Y); // executa a função explosao2
-                
+        if (colisao2.length > 0) {
+
+        
+
+            inimigo2X = parseInt($("#inimigo2").css("left")); // pega posição
+            inimigo2Y = parseInt($("#inimigo2").css("top"));// pega posição
+            explosao2(inimigo2X, inimigo2Y); // executa a função explosao2
+
             $("#inimigo2").remove();
-            
+
             reposicionaInimigo2(); // chamando a função para reposicionar inimigo2
-            
-        }	
+
+        }
     }
 
 
@@ -281,22 +291,26 @@ function start() { /*Comandos mudam porque está usando Jquery*/
                 }	
             }	         
 
-		
-                     //Disparo com inimigo1            
-	               if (colisao3.length>0) {
 
-                    inimigo1X = parseInt($("#inimigo1").css("left"));
-                    inimigo1Y = parseInt($("#inimigo1").css("top"));
+    //Disparo com inimigo1            
+    if (colisao3.length > 0) {
 
-                    
 
-                    explosao1(inimigo1X,inimigo1Y);
-                    $("#disparo").css("left",950);// colocar maior para remover
-                    
-                    posicaoY = parseInt(Math.random() * 334);
-                    $("#inimigo1").css("left",694);
-                    $("#inimigo1").css("top",posicaoY);
-                    }
+        pontos = pontos + 100;
+
+
+        inimigo1X = parseInt($("#inimigo1").css("left"));
+        inimigo1Y = parseInt($("#inimigo1").css("top"));
+
+
+
+        explosao1(inimigo1X, inimigo1Y);
+        $("#disparo").css("left", 950);// colocar maior para remover
+
+        posicaoY = parseInt(Math.random() * 334);
+        $("#inimigo1").css("left", 694);
+        $("#inimigo1").css("top", posicaoY);
+    }
                     //fim disparo inimigo 1
 
 
@@ -320,6 +334,8 @@ function start() { /*Comandos mudam porque está usando Jquery*/
 
     if (colisao5.length > 0) {
 
+
+        salvos++;
         reposicionaAmigo();
         $("#amigo").remove();
 
@@ -328,7 +344,9 @@ function start() { /*Comandos mudam porque está usando Jquery*/
     //Inimigo2 com o amigo
 
     if (colisao6.length > 0) {
+      
 
+        perdidos++;
         amigoX = parseInt($("#amigo").css("left"));
         amigoY = parseInt($("#amigo").css("top"));
         explosao3(amigoX, amigoY);
@@ -404,6 +422,12 @@ function start() { /*Comandos mudam porque está usando Jquery*/
 
         }
 
+    }
+
+    function placar() {
+	
+        $("#placar").html("<h2> Pontos: " + pontos + " Salvos: " + salvos + " Perdidos: " + perdidos + "</h2>");
+        
     }
 
 
