@@ -262,7 +262,7 @@ function start() { /*Comandos mudam porque está usando Jquery*/
                 
             }
             
-        } 
+        }  // Fim da primeira explosão
 
         function reposicionaInimigo2() {
 	
@@ -325,6 +325,19 @@ function start() { /*Comandos mudam porque está usando Jquery*/
 
     }
     
+    //Inimigo2 com o amigo
+
+    if (colisao6.length > 0) {
+
+        amigoX = parseInt($("#amigo").css("left"));
+        amigoY = parseInt($("#amigo").css("top"));
+        explosao3(amigoX, amigoY);
+        $("#amigo").remove();
+
+        reposicionaAmigo();
+
+    }
+
 
 
         
@@ -353,7 +366,9 @@ function start() { /*Comandos mudam porque está usando Jquery*/
         }
 
 
-    } // fim explosao 1 
+    } // fim explosao 2 
+
+
 
     //Reposiciona o cara do solo
 	
@@ -372,11 +387,24 @@ function start() { /*Comandos mudam porque está usando Jquery*/
             }
             
         }
-        
+
     } // Fim da função reposicionaAmigo()
-    
 
+    function explosao3(amigoX, amigoY) {
+        $("#fundoGame").append("<div id='explosao3' class='anima4'></div");
+        $("#explosao3").css("top", amigoY);
+        $("#explosao3").css("left", amigoX);
+        var tempoExplosao3 = window.setInterval(resetaExplosao3, 1000);
 
+        
+        function resetaExplosao3() {
+            $("#explosao3").remove();
+            window.clearInterval(tempoExplosao3);
+            tempoExplosao3 = null;
+
+        }
+
+    }
 
 
 
