@@ -27,11 +27,21 @@ function start() { /*Comandos mudam porque está usando Jquery*/
     var perdidos = 0;
     var energiaAtual=3;
     
+    
   
 
     jogo.pressionou = {}
 
+    var somDisparo=document.getElementById("somDisparo");
+    var somExplosao=document.getElementById("somExplosao");
+    var musica=document.getElementById("musica");
+    var somGameover=document.getElementById("somGameover");
+    var somPerdido=document.getElementById("somPerdido");
+    var somResgate=document.getElementById("somResgate");
 
+    //Música em loop
+musica.addEventListener("ended", function(){ musica.currentTime = 0; musica.play(); }, false);
+musica.play();
 
     //Verificando se as teclas foram pressionadas
 
@@ -159,6 +169,8 @@ function start() { /*Comandos mudam porque está usando Jquery*/
 
     function disparo() {
 
+        somDisparo.play();
+
         if(podeAtirar==true){ // se igual a true pode realizar o tiro 
             podeAtirar=false; //  não posso realizar outro tiro, enquanto não terminar a função a baixo
 
@@ -262,6 +274,10 @@ function start() { /*Comandos mudam porque está usando Jquery*/
 
 
     function explosao1(inimigo1X,inimigo1Y) {
+
+        somExplosao.play();
+
+
         $("#fundoGame").append("<div id='explosao1'></div"); // criando a div 
         $("#explosao1").css("background-image", "url(imgs/explosao.png)");  //tern a imagem 
         var div=$("#explosao1");
@@ -344,6 +360,9 @@ function start() { /*Comandos mudam porque está usando Jquery*/
     if (colisao5.length > 0) {
 
 
+
+        somResgate.play();
+
         salvos++;
         reposicionaAmigo();
         $("#amigo").remove();
@@ -374,6 +393,8 @@ function start() { /*Comandos mudam porque está usando Jquery*/
      //Iniciando explosão 2
 
     function explosao2(inimigo2X, inimigo2Y) {
+
+        somExplosao.play();
 
         $("#fundoGame").append("<div id='explosao2'></div");
         $("#explosao2").css("background-image", "url(imgs/explosao.png)");
@@ -418,6 +439,11 @@ function start() { /*Comandos mudam porque está usando Jquery*/
     } // Fim da função reposicionaAmigo()
 
     function explosao3(amigoX, amigoY) {
+
+
+        somPerdido.play();
+
+
         $("#fundoGame").append("<div id='explosao3' class='anima4'></div");
         $("#explosao3").css("top", amigoY);
         $("#explosao3").css("left", amigoX);
