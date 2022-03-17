@@ -46,6 +46,7 @@ function start() { /*Comandos mudam porque está usando Jquery*/
         moveinimigo1();
         moveinimigo2();
         moveamigo();
+        colisao();
     }  //fim do loop
 
     // Movendo o fundo
@@ -100,13 +101,7 @@ function start() { /*Comandos mudam porque está usando Jquery*/
 
         if (jogo.pressionou[TECLA.D]) {
 
-            disparo();
-
-
-
-
-
-            
+            disparo();             
         }
           //Movimenta para trás 
            /*if(jogo.pressionou[TECLA.A]){
@@ -187,7 +182,12 @@ function start() { /*Comandos mudam porque está usando Jquery*/
 
         }
 
+    }
 
+    function colisao(){
+        var colisao1 = ($("#jogador").collision($("#inimigo1"))); // colisão do jogador com inimigo1
+
+        console.log(colisao1);
 
     }
 
