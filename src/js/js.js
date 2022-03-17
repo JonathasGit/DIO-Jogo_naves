@@ -7,6 +7,7 @@ function start() { /*Comandos mudam porque está usando Jquery*/
     $("#fundoGame").append("<div id='inimigo2'></div>");
     $("#fundoGame").append("<div id='amigo' class='anima3'></div>");
     $("#fundoGame").append("<div id='placar'></div>"); //Placar do jogo
+    $("#fundoGame").append("<div id='energia'></div>"); // energia do jogador
 
 
     //Principais variaveis do jogo
@@ -24,6 +25,8 @@ function start() { /*Comandos mudam porque está usando Jquery*/
     var pontos = 0;
     var salvos = 0;
     var perdidos = 0;
+    var energiaAtual=3;
+    
   
 
     jogo.pressionou = {}
@@ -56,6 +59,7 @@ function start() { /*Comandos mudam porque está usando Jquery*/
         moveamigo();
         colisao();
         placar();
+        energia();
     }  //fim do loop
 
     // Movendo o fundo
@@ -204,7 +208,8 @@ function start() { /*Comandos mudam porque está usando Jquery*/
 
         if (colisao1.length>0){ //identificando se a var é  maior que zero 
 
-            //posição da explosao        
+            //posição da explosao       
+            energiaAtual--;  // Quando houve colisão, diminuir uma vida
             inimigo1X = parseInt($("#inimigo1").css("left"));
             inimigo1Y = parseInt($("#inimigo1").css("top"));
             explosao1(inimigo1X,inimigo1Y);
@@ -239,6 +244,8 @@ function start() { /*Comandos mudam porque está usando Jquery*/
 
         // jogador com o inimigo2 
         if (colisao2.length > 0) {
+
+            energiaAtual--; // Quando houve colisão, diminuir uma vida
 
         
 
@@ -429,6 +436,35 @@ function start() { /*Comandos mudam porque está usando Jquery*/
         $("#placar").html("<h2> Pontos: " + pontos + " Salvos: " + salvos + " Perdidos: " + perdidos + "</h2>");
         
     }
+
+    //Barra de energia
+
+function energia() {
+	
+    if (energiaAtual==3) { // se energia for igual a 3 mostrar a img 3 
+        
+        $("#energia").css("background-image", "url(imgs/energia3.png)");
+    }
+
+    if (energiaAtual==2) {// se energia for igual a 2 mostrar a img 2 
+        
+        $("#energia").css("background-image", "url(imgs/energia2.png)");
+    }
+
+    if (energiaAtual==1) {// se energia for igual a 2 mostrar a img 2
+        
+        $("#energia").css("background-image", "url(imgs/energia1.png)");
+    }
+
+    if (energiaAtual==0) { // se energia for igual a 0 mostrar a img 0
+        
+        $("#energia").css("background-image", "url(imgs/energia0.png)");
+        
+        //Game Over
+    }
+
+} // Fim da função energia()
+
 
 
 
