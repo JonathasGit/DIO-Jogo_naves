@@ -518,3 +518,13 @@ function gameOver() {
 
 
 } // fim do jogo 
+
+
+
+
+//Reinicia o Jogo	
+function reiniciaJogo() {
+	somGameover.pause(); // pausa o som 
+	$("#fim").remove(); // remove o restart 
+	start();	// chama o jogo novemante
+} //Fim da função reiniciaJogo
