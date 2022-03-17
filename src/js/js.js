@@ -302,6 +302,8 @@ function start() { /*Comandos mudam porque está usando Jquery*/
     //Disparo com inimigo1            
     if (colisao3.length > 0) {
 
+        velocidade=velocidade+0.3; // aumenta a velocidade do jogo
+
 
         pontos = pontos + 100;
 
