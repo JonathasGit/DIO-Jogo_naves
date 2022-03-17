@@ -100,11 +100,13 @@ function start() { /*Comandos mudam porque está usando Jquery*/
 
         if (jogo.pressionou[TECLA.D]) {
 
+            disparo();
 
 
 
 
-            //Criar função de disparo
+
+            
         }
           //Movimenta para trás 
            /*if(jogo.pressionou[TECLA.A]){
@@ -145,6 +147,48 @@ function start() { /*Comandos mudam porque está usando Jquery*/
         if (posicaoX>906) {          // Qunado tiver em 906 volta ao zero   
             $("#amigo").css("left", 0);
         }
+    }
+
+    function disparo() {
+
+        if(podeAtirar==true){ // se igual a true pode realizar o tiro 
+            podeAtirar=false; //  não posso realizar outro tiro, enquanto não terminar a função a baixo
+
+            //Identificando o jogador (helicptero)
+            topo = parseInt($("#jogador").css("top"))
+            posicaoX = parseInt($("#jogador").css("left"))         
+
+            //posicionando o disparo
+            tiroX = posicaoX + 190;
+            topoTiro = topo + 40;
+            //Fim da posição 
+
+            //Criando a div disparo
+            $("#fundoGame").append("<div id='disparo'></div>");//Criando a div
+            //Posicionando a div
+            $("#disparo").css("top",topoTiro);  
+            $("#disparo").css("left",tiroX);
+
+
+            //Fazer o disparo caminhar
+            var tempoDisparo=window.setInterval(executaDisparo, 30);            
+        }
+
+        function executaDisparo() {
+            posicaoX = parseInt($("#disparo").css("left")); //posição inicial do disparo
+            $("#disparo").css("left",posicaoX+15); //caminhar 15 
+
+            if(posicaoX>900){ // REmovendo a div do disparo
+                window.clearInterval(tempoDisparo);
+                tempoDisparo=null;
+                $("#disparo").remove();
+                podeAtirar=true;
+            }
+
+        }
+
+
+
     }
 
 
